@@ -1,7 +1,4 @@
-server:
-  port: 8082
-cupSize: B
-age: 18
-content: "cupSize: ${cupSize}, age: ${age}"
-
+spring:
+  profiles:
+    active: prod
 #必须有空格
