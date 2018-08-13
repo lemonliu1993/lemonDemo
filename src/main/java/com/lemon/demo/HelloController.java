@@ -32,7 +32,7 @@ public class HelloController {
     }
 
 //    @RequestMapping(value = "/hi" ,method = RequestMethod.GET)
-    @GetMapping
+    @GetMapping(value = "/hi")
     public String hi(@RequestParam(value = "id", required = false,defaultValue = "0") Integer myId){
         return "id:" +myId;
     }
