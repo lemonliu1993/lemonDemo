@@ -1,4 +1,16 @@
 spring:
   profiles:
     active: prod
+  datasource::
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/dbgirl
+    username: root
+    password: 123456
+#不能写data-username
+  jpa:
+    hibernate:
+      ddl-auto: update
+#create会每次启动的时候创建一个新表，有的话帮你删掉
+    show-sql: true
 #必须有空格
