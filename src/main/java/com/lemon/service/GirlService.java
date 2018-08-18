@@ -1,5 +1,7 @@
-package com.lemon.demo;
+package com.lemon.service;
 
+import com.lemon.domain.Girl;
+import com.lemon.demo.GirlRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

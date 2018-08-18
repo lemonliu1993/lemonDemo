@@ -1,8 +1,9 @@
-package com.lemon.demo;
+package com.lemon.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
 
 /**
  * Created by lemoon on 18/8/13 下午8:34
@@ -19,6 +20,7 @@ public class Girl {
 
     private String cupSize;
 
+    @Min(value = 18,message = "未成年少女禁止入门")
     private Integer age;
 
 
