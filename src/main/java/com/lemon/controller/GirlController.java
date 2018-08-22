@@ -2,6 +2,7 @@ package com.lemon.controller;
 
 import com.lemon.domain.Girl;
 import com.lemon.demo.GirlRepository;
+import com.lemon.domain.Result;
 import com.lemon.service.GirlService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
@@ -36,14 +37,21 @@ public class GirlController {
      * @return
      */
     @PostMapping(value = "/girls")
-    public Girl girlAdd(@Valid Girl girl, BindingResult bindingResult){
+    public Result<Girl> girlAdd(@Valid Girl girl, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
-            System.out.println(bindingResult.getFieldError().getDefaultMessage());
-            return null;
+//            return bindingResult.getFieldError().getDefaultMessage();
+            Result result = new Result();
+            result.setCode(1);
+            result.setMsg(bindingResult.getFieldError().getDefaultMessage());
+            return result;
         }
         girl.setCupSize(girl.getCupSize());
         girl.setAge(girl.getAge());
-        return girlRepository.save(girl);
+        Result result = new Result();
+        result.setCode(0);
+        result.setMsg("成功");
+        result.setData(girlRepository.save(girl));
+        return result;
     }
 
     //查询一个女生
